@@ -7,7 +7,7 @@
 L'objectif de ce dépot est d'essayer de prédire l'orientation politique d'un texte. Nous voulons donc réaliser un algorithme NLP pour, apres un apprentissage sur un corpus de textes orientés, prédire l'orientation politique de l'auteur inconnu d'un texte.
 Le projet est donc découpé en trois parties : 
   1) Récupération des données
-  2) Premiere étude descriptive
+  2) Première étude descriptive
   3) Modélisation
 
 
@@ -15,10 +15,10 @@ Le projet est donc découpé en trois parties :
 
 ### Récupération de données brutes
 
-Les textes dont nous avions besoin devaient être clairement attribuables à une opinion politique. Pour cela, les discours des députés ou les programmes de campagnes des candidats semblaient être des candidats crédibles. Cependant, les programmes des candidats pouvaient représenter un peu maigre, et être plus compliqués à récuperer. 
-D'autre part, les questions au gouvernement posées par les députés présentaient plusisuers avantages : nombreuses, variées, et simples à récupérer.
+Les textes dont nous avions besoin devaient être clairement attribuables à une opinion politique. Pour cela, les discours des députés ou les programmes de campagnes des candidats semblaient être des candidats crédibles. Cependant, les programmes des candidats pouvaient représenter un peu maigre, et être plus compliqués à récupérer. 
+D'autre part, les questions au gouvernement posées par les députés présentaient plusiseurs avantages : nombreuses, variées, et simples à récupérer.
 
-En efffet, elles sont accessibles pour un utilisateur à partir d'un outil de recherche [disponible ici](https://www2.assemblee-nationale.fr/recherche/questions).
+En effet, elles sont accessibles pour un utilisateur à partir d'un outil de recherche [disponible ici](https://www2.assemblee-nationale.fr/recherche/questions).
 
 En y regardant de plus près, on constate que toutes les questions concernant la XVIème legislature sont disponibles à des adresses du type [https://questions.assemblee-nationale.fr/q16/16-XXXXXQE.htm](https://questions.assemblee-nationale.fr/q16/16-8987QE.htm) où XXXX est le numéro de la question. 
 
@@ -44,7 +44,11 @@ Une fois ce nettoyage fait, on peut alors stocker toutes les données dans un fi
 
 ## 3) Modélisation
 
-Afin de pouvoir analyser plus en avant le corpus de textes recueilli dans la première partie de ce projet, nous avons cherché à le traiter à l'aide de méthode de NLP. 
+Afin de pouvoir analyser plus en avant le corpus de textes recueilli dans la première partie de ce projet, nous avons cherché à le traiter à l'aide de méthodes de NLP. L'idée à la source du travail que nous avons effectué dans cette partie est que les textes allaient, en première analyse, se regrouper plus par thématiques abordées que par groupes politiques ou orientation idéologique de leur auteur. Il nous semblait donc qu'une classification thématique des textes était un préalables indispensable à toute analyse du contenu politique. 
+
+Nous avons donc dans cette partie définies des fonctions python permettant de vectoriser le corpus de texte, de regrouper les différents textes à l'aide d'algorithmes de clustering et d'effectuer des analyses en composantes principales afin de représenter graphiquement, sur un plan, nos corpus de textes. Afin de vectoriser les textes du corpus, nous avons utilisé une approche naïve dite "bag of words" consistant à compter l'apparition de chaque mot du vocabulaire (tous les mots apparaissant dans le corpus de textes) pour vectoriser les textes, sans prendre en compte les interactions entre différents mots.
+
+Nous avons dans un premier temps appliqué ces fonctions à une corpus de textes très simple (six textes d'une phrase) pour les tester et illuster notre méthode. Le corpus de texte que nous avons écrit se divisait intuitivement en deux groupes de textes très similaires, et la fonction de clustering retrouvait bien ces deux groupes de textes, indiquant le bon fonctionnement de nos codes (avec l'ACP aussi, les points représentant des textes d'un même groupe se confondaient.
 
 ## Conclusion
 
