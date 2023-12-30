@@ -42,4 +42,29 @@ Une fois ce nettoyage fait, on peut alors stocker toutes les données dans un fi
 
 ## 2) Première étude descriptive
 
+Une fois que ces données ont été récupérées, on peut commencer à déjà s'y interesser par des statistiques descriptives. Le premier reflexe que nous avons eu est de réaliser une représentation graphique des mots obtenues : 
+
+<div align =  "center">
+<img src = 'img\representation mots.png' width = 70%>
+</div>
+
+Si le manque de s à `françai` peut d'abord nous choquer, on peut ensuite remarquer que des mots thématiques se dégagent : `numérique`, `souveraineté industrielle`, `santé prévention` ou encore `transition écologique` occupent une place conséquente sur l'écran.
+
+Le deuxième travail effectué se voulait de plotter les groupes qui utilisent le plus régulièrement certaines expressions. Il est assez naturellement venu le besoin de les normaliser par rapport au nombre de questions posées par les groupes.
+
+<div align =  "center">
+<img src = 'img\ecologie.png' width = 49%>
+<img src = 'img\question par groupe.png' width = 49%>
+</div>
+
+<div align =  "center">
+<img src = 'img\ecologie normalisé.png' width = 70%>
+</div>
+
+En effet, on peut voir avec cet exemple de l'écologie que c'est bien le RN qui pose le plus de questions qui concernent ce sujet. Cependant, par rapport au nombre de questions posées, le parti écologiste reprend logiquement sa première place.
+
+
+Enfin, on a également pu s'intéresser a des représentations géographiques de ces statistiques, qui peuvent donner des résultats assez attendus : 
+![carte rural](img\image.png)
+
 ## 3) Modélisation 
