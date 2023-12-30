@@ -1,4 +1,4 @@
-# Projet Python pour la Data Science
+# Etude de l'orientation politique dans les questions écrites de l'assemblée nationale
 
 *Ce projet est réalisé dans le cadre du cours de Python pour la Data Science donné par Lino Galiana à l'ENSAE Paris en 2023* 
 
