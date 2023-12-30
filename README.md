@@ -1,11 +1,12 @@
-# Projet Python pour la Data Science
+# Etude de l'orientation politique dans les questions écrites de l'Assemblée nationale
 
-*Ce projet est réalisé dans le cadre du cours de Python pour la Data Science de Lino Galiana, 2023-2024* 
+*Ce projet est réalisé dans le cadre du cours de Python pour la Data Science donné par Lino Galiana à l'ENSAE Paris en 2023* 
 
 ### Objectif et méthodologie
 
-L'objectif de ce dépot est d'essayer de prédire l'orientation politique d'un texte. Nous voulons donc réaliser un algorithme NLP pour, apres un apprentissage sur un corpus de textes orientés, prédire l'orientation politique de l'auteur inconnu d'un texte.
-Le projet est donc découpé en trois parties : 
+L'objectif de ce dépôt est d'essayer de prédire l'orientation politique d'un texte. Nous voulons donc réaliser un algorithme NLP pour, après un apprentissage sur un corpus de textes orientés, prédire l'orientation politique de l'auteur inconnu d'un texte.
+
+Le projet est organisé en trois parties : 
   1) Récupération des données
   2) Première étude descriptive
   3) Modélisation
@@ -15,20 +16,20 @@ Le projet est donc découpé en trois parties :
 
 ### Récupération de données brutes
 
-Les textes dont nous avions besoin devaient être clairement attribuables à une opinion politique. Pour cela, les discours des députés ou les programmes de campagnes des candidats semblaient être des candidats crédibles. Cependant, les programmes des candidats pouvaient représenter un peu maigre, et être plus compliqués à récupérer. 
-D'autre part, les questions au gouvernement posées par les députés présentaient plusiseurs avantages : nombreuses, variées, et simples à récupérer.
+Les textes dont nous avions besoin devaient être clairement attribuables à une opinion politique. Pour cela, les discours des députés ou les programmes de campagnes des candidats semblaient être des candidats crédibles. Cependant, les programmes des candidats pouvaient représenter un corpus un peu maigre, et être plus compliqués à récupérer. 
+D'autre part, les questions au gouvernement posées par les députés présentaient plusieurs avantages : elles sont nombreuses, variées, et simples à récupérer.
 
 En effet, elles sont accessibles pour un utilisateur à partir d'un outil de recherche [disponible ici](https://www2.assemblee-nationale.fr/recherche/questions).
 
 En y regardant de plus près, on constate que toutes les questions concernant la XVIème legislature sont disponibles à des adresses du type [https://questions.assemblee-nationale.fr/q16/16-XXXXXQE.htm](https://questions.assemblee-nationale.fr/q16/16-8987QE.htm) où XXXX est le numéro de la question. 
 
-Pour toutes les récupérer, nous avons donc mis en place un algorithme de Scraping qui boucle sur tous les numéros de pages, afin d'obtenir toutes les questions. Cet algorithme est disponible sous sa forme naïve dans le notebook [`Scraping Dataframe`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Scraping%20Dataframe.ipynb)
+Pour toutes les récupérer, nous avons donc mis en place un algorithme de Scrapping qui boucle sur tous les numéros de pages, afin d'obtenir toutes les questions. Cet algorithme est disponible sous sa forme naïve dans le notebook [`Scraping Dataframe`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Scraping%20Dataframe.ipynb)
 
- *⚠️Si ce notebook est une constituante importante de notre raisonnement, il n'est au final absolument pas nécessaire pour le bon focntionnement de notre projet. Nous le laissons ici pour présenter nos étapes de reflexion. Il est réutilisé avec quelques transformations dans le notebok [`Creation Datacleaned`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Creation%20Datacleaned.ipynb) qui est lui essentiel.*
+ *⚠️ Si ce notebook est une constituante importante de notre raisonnement, il n'est au final absolument pas nécessaire pour le bon focntionnement de notre projet. Nous le laissons ici pour présenter nos étapes de reflexion. Il est réutilisé avec quelques transformations dans le notebook [`Creation Datacleaned`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Creation%20Datacleaned.ipynb) qui est lui essentiel.*
 
 ### Nettoyage des données
 
-Une fois toutes ces données récupérées, il est nécessaire de les traiter pour pouvoir les exploiter par la suite. En effet, on s'aperçoit assez vite que les textes sont trop pollués. Si l'on regarde quelles sont les 30 mots ou expressions qui reviennent le plus, on obtient ce résultat : 
+Une fois toutes ces données récupérées, il est nécessaire de les traiter pour pouvoir les exploiter. En effet, on s'aperçoit assez vite que les textes sont trop pollués. Si l'on regarde par exemple quels sont les 30 mots ou expressions qui reviennent le plus, on obtient ce résultat : 
 
 <div align =  "center">
 <img src = 'img\Mots sans clean.png' width = 70%>
@@ -37,20 +38,20 @@ Une fois toutes ces données récupérées, il est nécessaire de les traiter po
 On voit bien qu'il faut enlever toutes les expressions dénuées de sens.
 On va également profiter de cela pour lemmatiser toutes les expressions, afin de ne plus tenir compte des conjugaisons ou des accords lors du comptage des mots. Tout cela est réalisé dans le notebook [`Creation Datacleaned`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Creation%20Datacleaned.ipynb)
 
-Une fois ce nettoyage fait, on peut alors stocker toutes les données dans un fichier au format csv, [`data_cleaned`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/data_cleaned.csv).
+Une fois ce nettoyage fait, on peut alors stocker toutes les données dans un fichier au format csv, [`data_cleaned`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/data_cleaned.csv). Cela évite de réitérer à chaque exécution tout le scrapping et le pré-processing, excessivement longs. 
 
 
 ## 2) Première étude descriptive
 
-Une fois que ces données ont été récupérées, on peut commencer à déjà s'y interesser par des [statistiques descriptives](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Statistiques%20descriptives/Statistiques_descriptives.ipynb). Le premier reflexe que nous avons eu est de réaliser une représentation graphique des mots obtenues : 
+Une fois que ces données ont été récupérées, on peut commencer à déjà s'y intéresser au moyen de [statistiques descriptives](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Statistiques%20descriptives/Statistiques_descriptives.ipynb). Le premier réflexe que nous avons eu est de réaliser une représentation graphique des mots obtenus : 
 
 <div align =  "center">
 <img src = 'img\representation mots.png' width = 70%>
 </div>
 
-Si le manque de s à `françai` peut d'abord nous choquer, on peut ensuite remarquer que des mots thématiques se dégagent : `numérique`, `souveraineté industrielle`, `santé prévention` ou encore `transition écologique` occupent une place conséquente sur l'écran.
+Si le manque de 's' à `françai` peut d'abord nous choquer (probablement dû à la lemmaization), on peut ensuite remarquer que des mots thématiques se dégagent : `numérique`, `souveraineté industrielle`, `santé prévention` ou encore `transition écologique` occupent une place conséquente sur l'écran.
 
-Le deuxième travail effectué se voulait de plotter les groupes qui utilisent le plus régulièrement certaines expressions. Il est assez naturellement venu le besoin de les normaliser par rapport au nombre de questions posées par les groupes.
+Le deuxième travail effectué se voulait d'afficher les groupes qui utilisent le plus régulièrement certaines expressions. Il est assez naturellement venu le besoin de les normaliser par rapport au nombre de questions posées par les groupes.
 
 <div align =  "center">
 <img src = 'img\ecologie.png' width = 49%>
@@ -61,7 +62,7 @@ Le deuxième travail effectué se voulait de plotter les groupes qui utilisent l
 <img src = 'img\ecologie normalisé.png'>
 </div>
 
-En effet, on peut voir avec cet exemple de l'écologie que c'est bien le RN qui pose le plus de questions qui concernent ce sujet. Cependant, par rapport au nombre de questions posées, le parti écologiste reprend logiquement sa première place.
+En effet, on peut voir avec cet exemple de l'écologie que c'est le RN qui pose le plus de questions qui concernent ce sujet. Cependant, par rapport au nombre de questions posées, le parti écologiste reprend logiquement sa première place, puisqu'il s'agit de son thème de prédilection. 
 
 
 Enfin, on a également pu s'intéresser a des représentations géographiques de ces statistiques, qui peuvent donner des résultats assez attendus : 
@@ -69,7 +70,7 @@ Enfin, on a également pu s'intéresser a des représentations géographiques de
 <img src = 'img\image.png'>
 </div>
 
-On observe assez logiquement que les députés issus de la diagonale du vide sont plus investis au sujet de la ruralité que les parisiens ...
+On observe assez logiquement que les députés issus de la diagonale du vide sont plus investis au sujet de la ruralité que les parisiens par exemple.
 
 ## 3) Modélisation
 
