@@ -42,7 +42,9 @@ Une fois ce nettoyage fait, on peut alors stocker toutes les données dans un fi
 
 ## 2) Première étude descriptive
 
-## 3) Modélisation 
+## 3) Modélisation
+
+Afin de pouvoir analyser plus en avant le corpus de textes recueilli dans la première partie de ce projet, nous avons cherché à le traiter à l'aide de méthode de NLP. 
 
 ## Conclusion
 
