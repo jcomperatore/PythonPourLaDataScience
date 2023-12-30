@@ -29,7 +29,7 @@ Pour toutes les récupérer, nous avons donc mis en place un algorithme de Scrap
 
 Une fois toutes ces données récupérées, il est nécessaire de les traiter pour pouvoir les exploiter par la suite. En effet, on s'aperçoit assez vite que les textes sont trop pollués. Si l'on regarde quelles sont les 30 mots ou expressions qui reviennent le plus, on obtient ce résultat : 
 
-<div style="text-align: center;">
+<div style="align: center;">
 <img src = 'Mots sans clean.png' width = 70%>
 </div>
 
