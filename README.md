@@ -42,7 +42,7 @@ Une fois ce nettoyage fait, on peut alors stocker toutes les données dans un fi
 
 ## 2) Première étude descriptive
 
-Une fois que ces données ont été récupérées, on peut commencer à déjà s'y interesser par des statistiques descriptives. Le premier reflexe que nous avons eu est de réaliser une représentation graphique des mots obtenues : 
+Une fois que ces données ont été récupérées, on peut commencer à déjà s'y interesser par des [statistiques descriptives](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Statistiques%20descriptives/Statistiques_descriptives.ipynb). Le premier reflexe que nous avons eu est de réaliser une représentation graphique des mots obtenues : 
 
 <div align =  "center">
 <img src = 'img\representation mots.png' width = 70%>
@@ -58,14 +58,18 @@ Le deuxième travail effectué se voulait de plotter les groupes qui utilisent l
 </div>
 
 <div align =  "center">
-<img src = 'img\ecologie normalisé.png' width = 70%>
+<img src = 'img\ecologie normalisé.png'>
 </div>
 
 En effet, on peut voir avec cet exemple de l'écologie que c'est bien le RN qui pose le plus de questions qui concernent ce sujet. Cependant, par rapport au nombre de questions posées, le parti écologiste reprend logiquement sa première place.
 
 
 Enfin, on a également pu s'intéresser a des représentations géographiques de ces statistiques, qui peuvent donner des résultats assez attendus : 
-![carte rural](img\image.png)
+<div align =  "center">
+<img src = 'img\image.png'>
+</div>
+
+On observe assez logiquement que les députés issus de la diagonale du vide sont plus investis au sujet de la ruralité que les parisiens ...
 
 ## 3) Modélisation
 
@@ -73,7 +77,7 @@ Afin de pouvoir analyser plus en avant le corpus de textes recueilli dans la pre
 
 Nous avons donc dans cette partie définies des fonctions python permettant de vectoriser le corpus de texte, de regrouper les différents textes à l'aide d'algorithmes de clustering et d'effectuer des analyses en composantes principales afin de représenter graphiquement, sur un plan, nos corpus de textes. Afin de vectoriser les textes du corpus, nous avons utilisé une approche naïve dite "bag of words" consistant à compter l'apparition de chaque mot du vocabulaire (tous les mots apparaissant dans le corpus de textes) pour vectoriser les textes, sans prendre en compte les interactions entre différents mots.
 
-Nous avons dans un premier temps appliqué ces fonctions à une corpus de textes très simple (six textes d'une phrase) pour les tester et illuster notre méthode. Le corpus de texte que nous avons écrit se divisait intuitivement en deux groupes de textes très similaires, et la fonction de clustering retrouvait bien ces deux groupes de textes, indiquant le bon fonctionnement de nos codes (avec l'ACP aussi, les points représentant des textes d'un même groupe se confondaient.
+Nous avons dans un premier temps appliqué ces fonctions à une corpus de textes très simple (six textes d'une phrase) pour les tester et illuster notre méthode. Le corpus de texte que nous avons écrit se divisait intuitivement en deux groupes de textes très similaires, et la fonction de clustering retrouvait bien ces deux groupes de textes, indiquant le bon fonctionnement de nos codes (avec l'ACP aussi, les points représentant des textes d'un même groupe se confondaient).
 
 ## Conclusion
 
