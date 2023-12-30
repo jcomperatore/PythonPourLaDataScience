@@ -85,6 +85,8 @@ Ensuite, nous avons cheché à appliquer cette méthode au corpus de questions �
 ## Conclusion
 
 Ce projet nous a permis de découvrir et de nous familiariser avec les méthodes de NLP et leurs applications au traitement du discours politique. Les méthodes que nous avons commencé à mettre en œuvre dans ce projet sont des fondations qui pourraient être développées et améliorées et être utilisées dans le cadre de recherches en sciences politiques dans la même veine que de nombreuses recherches contemporaines en sciences politiques et en sciences sociales. 
+
 Une première application de telles méthodes pourrait être d’obtenir, à l’aide d’analyse en composantes principales, une cartographie objective des proximités politiques (ou tout du moins du discours) entre différents partis et groupes politiques. En outre, on pourrait dévoiler les proximités entre les différents partis politiques selon la thématique abordée.
+
 Par ailleurs, ces méthodes appliquées sur des corpus de textes politiques de différentes périodes pourraient permettre de dévoiler ou d’objectiver des évolutions du discours politique (extrême droitisation du champ politique, accroissement de la préoccupation écologique, évolution d’un discours contestataire vers un discours plus institutionnel ou inversement, etc…).
 
