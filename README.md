@@ -23,14 +23,15 @@ En efffet, elles sont accessibles pour un utilisateur à partir d'un outil de re
 En y regardant de plus près, on constate que toutes les questions concernant la XVIème legislature sont disponibles à des adresses du type [https://questions.assemblee-nationale.fr/q16/16-XXXXXQE.htm](https://questions.assemblee-nationale.fr/q16/16-8987QE.htm) où XXXX est le numéro de la question. 
 
 Pour toutes les récupérer, nous avons donc mis en place un algorithme de Scraping qui boucle sur tous les numéros de pages, afin d'obtenir toutes les questions. Cet algorithme est disponible sous sa forme naïve dans le notebook [`Scraping Dataframe`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Scraping%20Dataframe.ipynb)
-⚠️ *Si ce notebook est une constituante importante de notre raisonnement, il n'est au final absolument pas nécessaire pour le bon focntionnement de notre projet. Nous le laissons ici pour présenter nos étapes de reflexion. Il est réutilisé avec quelques transformations dans le notebok [`Creation Datacleaned`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Creation%20Datacleaned.ipynb) qui est lui essentiel.*
+
+ *⚠️Si ce notebook est une constituante importante de notre raisonnement, il n'est au final absolument pas nécessaire pour le bon focntionnement de notre projet. Nous le laissons ici pour présenter nos étapes de reflexion. Il est réutilisé avec quelques transformations dans le notebok [`Creation Datacleaned`](https://github.com/jcomperatore/PythonPourLaDataScience/blob/main/Datascrapping/Creation%20Datacleaned.ipynb) qui est lui essentiel.*
 
 ### Nettoyage des données
 
 Une fois toutes ces données récupérées, il est nécessaire de les traiter pour pouvoir les exploiter par la suite. En effet, on s'aperçoit assez vite que les textes sont trop pollués. Si l'on regarde quelles sont les 30 mots ou expressions qui reviennent le plus, on obtient ce résultat : 
 
 <div align =  "center">
-<img src = 'Mots sans clean.png' width = 70%>
+<img src = 'img\Mots sans clean.png' width = 70%>
 </div>
 
 On voit bien qu'il faut enlever toutes les expressions dénuées de sens.
